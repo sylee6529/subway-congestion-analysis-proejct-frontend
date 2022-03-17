@@ -1,0 +1,305 @@
+:root {
+  --line1: #0052a4;
+  --line2: #0ea349;
+  --line3: #ef7c1c;
+  --line4: #00a9e0;
+  --line5: #a05eb5;
+  --line6: #cd7c2f;
+  --line7: #747f00;
+  --line8: #ea545d;
+  --line9: #bb8336;
+  --lineIC1: #7ca8d5;
+  --lineIC2: #ed8b00;
+  --lineSB: #7ca8d5;
+  --lineSBD: #d4003b;
+  --lineKJ: #79c0a0;
+  --lineAP: #038fa0;
+  --lineGC: #33c7a7;
+  --lineEJB: #f9d469;
+  --lineYI: #56ab32;
+  --lineGG: #004ea7;
+  --lineUI: #b7b7b7;
+  --lineSH: #8be800;
+  --lineKP: #f6bf1e;
+}
+
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-style: normal;
+  font-weight: 700; /*700, 300, 400*/
+  src: url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot");
+  src: url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix")
+      format("embedded-opentype"),
+    url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff")
+      format("woff"),
+    url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf")
+      format("truetype");
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: "NanumBarunGothic", sans-serif;
+}
+
+.mapWrapper {
+  width: 100%;
+  height: calc(100% - 115px);
+  background-color: white;
+  position: fixed;
+  overflow: hidden;
+  margin-top: 110px;
+}
+
+#map {
+  width: 1400px;
+  height: 975px;
+}
+
+.bottomPageWrapper {
+  position: fixed;
+  bottom: -100%;
+  transition: ease 0.6s;
+  z-index: 999;
+}
+
+.contentWrapper {
+  width: 100%;
+  height: 100px;
+  display: table;
+  z-index: 999;
+}
+
+.content {
+  width: 100vw;
+  height: 290px;
+  background-color: white;
+}
+
+.showContent {
+  bottom: 0;
+}
+
+.hiddenContent {
+  display: none;
+}
+
+.topMenu {
+  width: 100%;
+  height: 65px;
+}
+
+.button-container {
+  display: inline-flex;
+}
+
+div > ul {
+  display: inline-block;
+  margin: 5px 0px 0px 10px;
+  padding: 3px;
+}
+
+div > ul > li {
+  display: inline;
+  list-style: none;
+}
+
+.line-toggle-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: solid 1px white;
+  background: white;
+  margin: 5px;
+  font-size: 1.2em;
+  padding: 0px;
+  text-align: center;
+  line-height: 42px;
+}
+
+.fa-sync-alt {
+  color: #7e7e7e;
+  font-size: 1.6em;
+  float: right;
+  margin: 20px 15px 0px 0px;
+}
+
+.station-info {
+  display: inline-flex;
+  height: 55px;
+  width: 100%;
+  align-items: center;
+  border: none;
+}
+
+.fStation-section {
+  width: calc((100% - 170px) / 2);
+  height: 65px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.fa-angle-left {
+  display: inline-block;
+  color: white;
+  font-size: 1.5em;
+  margin: 0px 10px 2px 10px;
+}
+
+.fStation-name > span {
+  color: white;
+}
+
+.station-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 65px;
+}
+
+.station-namebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 40px;
+}
+
+.station-namebox > span {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.nStation-section {
+  width: calc((100% - 170px) / 2);
+  height: 65px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nStation-name {
+  position: absolute;
+  right: 37px;
+}
+
+.nStation-name > span {
+  color: white;
+}
+
+.fa-angle-right {
+  position: absolute;
+  right: 10px;
+  font-size: 1.5em;
+  color: white;
+}
+
+.congestion-by-comp {
+  width: 100%;
+  height: 150px;
+  position: relative;
+}
+
+.cong-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  margin-top: 32px;
+  z-index: 5;
+}
+
+.loadingGif {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 32px;
+  z-index: 6;
+}
+
+.cong-title {
+  font-size: 1.2em;
+  display: inline-block;
+  width: calc(100% - 15px);
+  height: 25px;
+  font-weight: 700;
+  margin: 7px 0px 0px 15px;
+}
+
+.standard-time {
+  width: calc(50% - 100px);
+  height: 20px;
+  font-size: 0.8em;
+  color: #7a7a7a;
+  float: right;
+}
+
+.upline {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+}
+
+.upContainer,
+.downContainer {
+  width: 160px;
+  height: 60px;
+}
+
+.downline {
+  width: 50%;
+  height: 100px;
+  display: table-cell;
+}
+
+.line-title {
+  display: inline;
+}
+
+.remainTime {
+  display: inline;
+}
+
+.remainTime > span {
+  float: right;
+  color: #ff2e00;
+  font-size: 0.8em;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.show-congestion {
+  width: 160px;
+  height: 70px;
+  margin-top: 10px;
+}
+
+.cong {
+  width: 11px;
+  height: 20px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-left: 1px;
+}
+
+.compNum {
+  display: inline;
+  margin-left: 3.5px;
+  font-size: 0.9em;
+}
+
+.loadingText {
+  color: #00255a;
+}
